@@ -1,6 +1,8 @@
 from flask import Flask, request, render_template
+from Main import img_gen , pdf_gen
 
 app = Flask(__name__, static_url_path='')
+app.debug = True
 
 @app.route('/')
 def home():
@@ -9,7 +11,9 @@ def home():
 @app.route('/', methods=['POST'])
 def get_link():
     link = request.form['link']
-    return link
+    img_name = img_gen(link)
+    pdf_name = pdf_gen(img_name)
+    return img_name
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug = True )
