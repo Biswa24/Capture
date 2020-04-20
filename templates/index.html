@@ -18,12 +18,12 @@
             <div class="col-sm-3"></div>
             <div class="col-sm-6 link">
                 <div>
-                    <form action="">
+                    <form method="POST">
                         <div class="form-group">
                         <label for="email">Enter link:</label>
-                        <input type="email" class="form-control" id="link" placeholder="Link...">
+                        <input type="text" name="link" class="form-control" id="link" placeholder="Link...">
                         </div>
-                        <button type="button" onclick="get_link()" class="btn btn-default">Submit</button>
+                        <button type="submit" class="btn btn-default">Submit</button>
                     </form>
                 </div>
             </div>
@@ -43,8 +43,5 @@
 </body>
 <script>
     $("#show_screenshot").hide()
-    function get_link(){
-        alert($("#link").val())
-    }
 </script>
 </html>
