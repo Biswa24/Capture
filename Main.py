@@ -1,6 +1,6 @@
 from PIL import Image
 import os
-print(os.path.dirname(os.path.abspath(__file__))+'/chromedriver')
+#print(os.path.dirname(os.path.abspath(__file__))+'/chromedriver')
 from selenium import webdriver
 from Screenshot import Screenshot_Clipping
 from datetime import datetime
@@ -25,10 +25,11 @@ def img_gen(url):
 	#driver.get('https://itsbiswa.me')
 	print(os.path.dirname(os.path.abspath(__file__)))
 
-	DRIVER = ('./chromedriver')
+	DRIVER = ('./chromedriver_linux/chromedriver')
 	driver = webdriver.Chrome(DRIVER)
 	driver.get(url)
 	img_name =  str(datetime.now()) +".png"
+	img_name=img_name.replace(" ", "-")
 	mg_url=ob.full_Screenshot(driver, save_path=img_dir, image_name=img_name)
 	driver.quit()
 	return img_name

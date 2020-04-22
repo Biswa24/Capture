@@ -30,18 +30,20 @@
             <div class="col-sm-3"></div>
         </div>
     </div>
+    {% if save == 1 %}
     <div id="show_screenshot" class="container">
         <div class="row">
             <div class="col-sm-12 text-center">
-                <div>screenshot img</div>
+                <div><img src="../static/img/{{ img_name }}" alt="">{{ img_name }}</div>
                 <div id="save">
                     <button type="button" class="btn btn-default">Save</button>
                 </div>
             </div>
         </div>
     </div>
+    {% endif %}
 </body>
 <script>
-    $("#show_screenshot").hide()
+    //$("#show_screenshot").hide()
 </script>
 </html>

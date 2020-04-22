@@ -13,7 +13,8 @@ def get_link():
     link = request.form['link']
     img_name = img_gen(link)
     pdf_name = pdf_gen(img_name)
-    return img_name
+    save=1
+    return render_template("index.html", img_name=img_name,save=save)
 
 if __name__ == '__main__':
     app.run(debug = True )
