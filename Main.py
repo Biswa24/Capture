@@ -1,8 +1,10 @@
 from PIL import Image
+import os
+print(os.path.dirname(os.path.abspath(__file__))+'/chromedriver')
 from selenium import webdriver
 from Screenshot import Screenshot_Clipping
 from datetime import datetime
-import os
+
 
 
 ob=Screenshot_Clipping.Screenshot()
@@ -21,6 +23,7 @@ def img_gen(url):
 	if url == None :
 		return
 	#driver.get('https://itsbiswa.me')
+	print(os.path.dirname(os.path.abspath(__file__)))
 
 	DRIVER = ('./chromedriver')
 	driver = webdriver.Chrome(DRIVER)
