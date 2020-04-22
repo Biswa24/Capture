@@ -12,38 +12,50 @@
     <title>title</title>
 </head>
 <body>
-    <h1 class="text-center">Screenshot</h1>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-3"></div>
-            <div class="col-sm-6 link">
-                <div>
-                    <form method="POST">
-                        <div class="form-group">
-                        <label for="email">Enter link:</label>
-                        <input type="text" name="link" class="form-control" id="link" placeholder="Link...">
-                        </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
-                    </form>
+    <div id="main">
+        <h1 class="text-center">Screenshot</h1>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6 link">
+                    <div>
+                        <form method="POST">
+                            <div class="form-group">
+                            <label for="email">Enter link:</label>
+                            <input type="text" name="link" class="form-control" id="link" placeholder="Link...">
+                            </div>
+                            <button id="submit_link" type="submit" class="btn btn-default">Submit</button>
+                        </form>
+                    </div>
                 </div>
+                <div class="col-sm-3"></div>
             </div>
-            <div class="col-sm-3"></div>
         </div>
     </div>
     {% if save == 1 %}
-    <div id="show_screenshot" class="container">
-        <div class="row">
-            <div class="col-sm-12 text-center">
-                <div><img src="../static/img/{{ img_name }}" alt=""></div>
-                <div id="save">
-                    <button type="button" class="btn btn-default">Save</button>
+        <div style="margin-bottom: 40px;" id="show_screenshot" class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <div><img style="border: 2px solid black; margin: 10px;" width="100%" src="../static/img/{{ img_name }}" alt=""></div>
+                    <div id="save">
+                        <button style="margin: 20px;" type="button" class="btn btn-success"><a style="color: white;" href="../static/img/{{ img_name }}" download>Save(.png)</a></button>&nbsp;
+                        <button type="button" class="btn btn-success"><a style="color: white;" href="../static/pdf/{{ pdf_name }}" download>Save(.pdf)</a></button>
+                        <br>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     {% endif %}
+    <footer style="background-color: orange; padding: 10px; position: fixed; left: 0; bottom: 0; width: 100%;">
+        <p style="float: right;"> &copy MR.BSK</p>
+        <p>Contact information: <a href="mailto:covid19@mail.itsbiswa.me">covid19@mail.itsbiswa.me</a></p>
+    </footer>
 </body>
 <script>
     //$("#show_screenshot").hide()
+    $("#submit_link").click(function(){
+        console.log("hiiiu")
+        $("#main").removeAttr("style")
+    })
 </script>
 </html>

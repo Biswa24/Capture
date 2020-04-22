@@ -26,7 +26,7 @@ def img_gen(url):
 	print(os.path.dirname(os.path.abspath(__file__)))
 
 	#DRIVER = ('./chromedriver_linux/chromedriver')
-	DRIVER = ('./chromedriver')
+	DRIVER = ('./chromedriver_linux/chromedriver')
 	driver = webdriver.Chrome(DRIVER)
 	driver.get(url)
 	img_name =  str(datetime.now()) +".png"
@@ -44,5 +44,6 @@ def pdf_gen(img_name):
 	img_name = img_name[:-3]+'pdf'
 	pdf_path = os.path.join(pdf_dir, img_name)
 	im1.save(r'{}'.format(pdf_path))
+	return img_name
 
 
