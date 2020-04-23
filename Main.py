@@ -12,13 +12,13 @@ ob=Screenshot_Clipping.Screenshot()
 img_dir = './static/img/'
 pdf_dir = './static/pdf/'
 
-# chrome_options = webdriver.ChromeOptions()
-# chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-# chrome_options.add_argument("--headless")
-# chrome_options.add_argument("--disable-dev-shm-usage")
-# chrome_options.add_argument("--no-sandbox")
+chrome_options = webdriver.ChromeOptions()
+chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--disable-dev-shm-usage")
+chrome_options.add_argument("--no-sandbox")
 
-# driver = webdriver.Chrome(excutable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options )
+driver = webdriver.Chrome(excutable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options )
 
 def img_gen(url):
 	if url == None :
@@ -26,7 +26,7 @@ def img_gen(url):
 	#driver.get('https://itsbiswa.me')
 	#print(os.path.dirname(os.path.abspath(__file__)))
 
-	DRIVER = ('./chromedriver/chromedriver_mac')
+	# DRIVER = ('./chromedriver/chromedriver_mac')
 	#DRIVER = ('./chromedriver/chromedriver_linux')
 	driver = webdriver.Chrome(DRIVER)
 	driver.get(url)
