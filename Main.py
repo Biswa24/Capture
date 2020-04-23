@@ -26,8 +26,8 @@ def img_gen(url):
 	#driver.get('https://itsbiswa.me')
 	#print(os.path.dirname(os.path.abspath(__file__)))
 
-	DRIVER = ('./chromedriver/chromedriver_mac')
-	#DRIVER = ('./chromedriver/chromedriver_linux')
+	#DRIVER = ('./chromedriver/chromedriver_mac')
+	DRIVER = ('./chromedriver/chromedriver_linux')
 	driver = webdriver.Chrome(DRIVER)
 	driver.get(url)
 	img_name =  str(datetime.now().replace(microsecond=0)) +".png"
