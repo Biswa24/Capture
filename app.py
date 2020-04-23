@@ -2,7 +2,7 @@ from flask import Flask, request, render_template, url_for
 from Main import img_gen , pdf_gen
 
 app = Flask(__name__, static_url_path='/static')
-app.debug = True
+# app.debug = True
 
 @app.route('/')
 def home():
@@ -17,4 +17,4 @@ def get_link():
     return render_template("index.html", img_name=img_name,save=save, pdf_name=pdf_name)
 
 if __name__ == '__main__':
-    app.run(debug = True )
+    app.run()

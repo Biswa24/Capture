@@ -8,6 +8,7 @@ from datetime import datetime
 
 
 ob=Screenshot_Clipping.Screenshot()
+
 img_dir = './static/img/'
 pdf_dir = './static/pdf/'
 
@@ -23,13 +24,13 @@ def img_gen(url):
 	if url == None :
 		return
 	#driver.get('https://itsbiswa.me')
-	print(os.path.dirname(os.path.abspath(__file__)))
+	#print(os.path.dirname(os.path.abspath(__file__)))
 
-	#DRIVER = ('./chromedriver_linux/chromedriver')
-	DRIVER = ('./chromedriver_linux/chromedriver')
+	DRIVER = ('./chromedriver/chromedriver_mac')
+	#DRIVER = ('./chromedriver/chromedriver_linux')
 	driver = webdriver.Chrome(DRIVER)
 	driver.get(url)
-	img_name =  str(datetime.now()) +".png"
+	img_name =  str(datetime.now().replace(microsecond=0)) +".png"
 	img_name=img_name.replace(" ", "-")
 	mg_url=ob.full_Screenshot(driver, save_path=img_dir, image_name=img_name)
 	driver.quit()
