@@ -1,4 +1,4 @@
 Pillow==7.0.0
 selenium==3.141.0
 Selenium-Screenshot==1.6.0
-Flask==1.1.1
+flask==1.1.1
