@@ -12,13 +12,6 @@ ob=Screenshot_Clipping.Screenshot()
 img_dir = './static/img/'
 pdf_dir = './static/pdf/'
 
-chrome_options = webdriver.ChromeOptions()
-chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-chrome_options.add_argument("--headless")
-chrome_options.add_argument("--disable-dev-shm-usage")
-chrome_options.add_argument("--no-sandbox")
-
-driver = webdriver.Chrome(excutable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options )
 
 def img_gen(url):
 	if url == None :
@@ -28,7 +21,13 @@ def img_gen(url):
 
 	# DRIVER = ('./chromedriver/chromedriver_mac')
 	#DRIVER = ('./chromedriver/chromedriver_linux')
-	driver = webdriver.Chrome(DRIVER)
+	chrome_options = webdriver.ChromeOptions()
+	chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+	chrome_options.add_argument("--headless")
+	chrome_options.add_argument("--disable-dev-shm-usage")
+	chrome_options.add_argument("--no-sandbox")
+	driver = webdriver.Chrome(excutable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options )
+	# driver = webdriver.Chrome(DRIVER)
 	driver.get(url)
 	img_name =  str(datetime.now().replace(microsecond=0)) +".png"
 	img_name=img_name.replace(" ", "-")
