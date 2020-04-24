@@ -1,4 +1,11 @@
+click==7.1.1
+Flask==1.1.1
+itsdangerous==1.1.0
+Jinja2==2.11.2
+MarkupSafe==1.1.1
 Pillow==7.0.0
 selenium==3.141.0
 Selenium-Screenshot==1.6.0
-flask==1.1.1
+urllib3==1.25.9
+Werkzeug==1.0.1
+gunicorn==20.0.4
