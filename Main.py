@@ -34,7 +34,11 @@ def img_gen(url):
 	
 	driver.get(url)
 	img_name =  str(datetime.now().replace(microsecond=0)) +".png"
-	mg_url=ob.full_Screenshot(driver, save_path=img_dir, image_name=img_name)
+	img_path = os.path.join(img_dir,img_name)
+	# img_url=ob.full_Screenshot(driver, save_path=img_dir, image_name=img_name)
+	S = lambda X: driver.execute_script('return document.body.parentNode.scroll'+X)
+	driver.set_window_size(S('Width'),S('Height')) # May need manual adjustment
+	driver.find_element_by_tag_name('body').save_screenshot(img_path)  # has scrollbar
 	driver.quit()
 	return img_name
 	

@@ -5,7 +5,7 @@ from apscheduler.schedulers.background  import BackgroundScheduler
 app = Flask(__name__, static_url_path='/static')
 # app.debug = True
 
-time_diff = 5 #minutes
+time_diff = 1 #minutes
 
 def sensor():
     delete(val='img',time = time_diff)
