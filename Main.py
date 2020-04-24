@@ -31,13 +31,12 @@ def img_gen(url):
 	chrome_options.add_argument("--disable-dev-shm-usage")
 	chrome_options.add_argument("--no-sandbox")
 
-	# if executable_path is not None:
-	# 	executable_path = os.path.abspath(executable_path)
-	# 	driver = webdriver.Chrome(excutable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options)
-	# else:
-	# 	driver = webdriver.Chrome(chrome_options=chrome_options)
-	# driver = webdriver.Chrome(ChromeDriverManager().install(),chrome_options=chrome_options)
-	driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options)
+	if os.environ['FLASK_ENV'] == 'development':
+		DRIVER = ('./chromedriver/chromedriver_mac')
+		# DRIVER = ('./chromedriver/chromedriver_linux')
+		driver = webdriver.Chrome(DRIVER)
+	else:
+		driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options)
 	
 	driver.get(url)
 	img_name =  str(datetime.now().replace(microsecond=0)) +".png"
