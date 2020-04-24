@@ -8,8 +8,8 @@ app = Flask(__name__, static_url_path='/static')
 time_diff = 1 #minutes
 
 def sensor():
-    delete(val='img',time = time_diff)
-    delete(val='pdf',time = time_diff)
+    delete(val='img',time_diff = time_diff)
+    delete(val='pdf',ttime_diff = time_diff)
 
 sched = BackgroundScheduler(daemon=True)
 sched.add_job(sensor,'interval',minutes=time_diff)
