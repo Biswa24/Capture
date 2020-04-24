@@ -19,16 +19,16 @@ def img_gen(url):
 	#driver.get('https://itsbiswa.me')
 	#print(os.path.dirname(os.path.abspath(__file__)))
 
-	DRIVER = ('./chromedriver/chromedriver_mac')
-	#DRIVER = ('./chromedriver/chromedriver_linux')
-	driver = webdriver.Chrome(DRIVER)
+	# DRIVER = ('./chromedriver/chromedriver_mac')
+	# DRIVER = ('./chromedriver/chromedriver_linux')
+	# driver = webdriver.Chrome(DRIVER)
 
-	# chrome_options = webdriver.ChromeOptions()
-	# chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
-	# chrome_options.add_argument("--headless")
-	# chrome_options.add_argument("--disable-dev-shm-usage")
-	# chrome_options.add_argument("--no-sandbox")
-	# driver = webdriver.Chrome(excutable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options )
+	chrome_options = webdriver.ChromeOptions()
+	chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+	chrome_options.add_argument("--headless")
+	chrome_options.add_argument("--disable-dev-shm-usage")
+	chrome_options.add_argument("--no-sandbox")
+	driver = webdriver.Chrome(excutable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options )
 	
 	driver.get(url)
 	img_name =  str(datetime.now().replace(microsecond=0)) +".png"
