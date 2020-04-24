@@ -36,8 +36,8 @@ def img_gen(url):
 	# 	driver = webdriver.Chrome(excutable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options)
 	# else:
 	# 	driver = webdriver.Chrome(chrome_options=chrome_options)
-	driver = webdriver.Chrome(ChromeDriverManager().install(),chrome_options=chrome_options)
-	# driver = webdriver.Chrome(excutable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options)
+	# driver = webdriver.Chrome(ChromeDriverManager().install(),chrome_options=chrome_options)
+	driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options)
 	
 	driver.get(url)
 	img_name =  str(datetime.now().replace(microsecond=0)) +".png"
