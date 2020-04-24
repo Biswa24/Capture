@@ -1,7 +1,9 @@
 from PIL import Image
 import os
+from os import environ
 #print(os.path.dirname(os.path.abspath(__file__))+'/chromedriver')
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 from Screenshot import Screenshot_Clipping
 from datetime import datetime
 
@@ -28,7 +30,14 @@ def img_gen(url):
 	chrome_options.add_argument("--headless")
 	chrome_options.add_argument("--disable-dev-shm-usage")
 	chrome_options.add_argument("--no-sandbox")
-	driver = webdriver.Chrome(excutable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options )
+
+	# if executable_path is not None:
+	# 	executable_path = os.path.abspath(executable_path)
+	# 	driver = webdriver.Chrome(excutable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options)
+	# else:
+	# 	driver = webdriver.Chrome(chrome_options=chrome_options)
+	driver = webdriver.Chrome(ChromeDriverManager().install(),chrome_options=chrome_options)
+	# driver = webdriver.Chrome(excutable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options)
 	
 	driver.get(url)
 	img_name =  str(datetime.now().replace(microsecond=0)) +".png"
