@@ -70,7 +70,6 @@ def delete(val,time_diff):
 	except:
 		pass
 	files_name = [i[:-4] for i in dir_name]
-
 	date_time_obj = [datetime.strptime(i, '%Y-%m-%d %H:%M:%S') for i in files_name]
 
 	curr_time = datetime.now().replace(microsecond=0)
@@ -84,8 +83,8 @@ def delete(val,time_diff):
 
 	for i,j in enumerate(difference):
 		if j > time:
-			img_path = os.path.join(img_dir,dir_name[i])
+			img_path = os.path.join(dir,dir_name[i])
 			os.remove(img_path)
 			print("Deleted {} file".format(dir_name[i]))
 
-	return 
+	return

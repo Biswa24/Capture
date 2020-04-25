@@ -5,11 +5,11 @@ from apscheduler.schedulers.background  import BackgroundScheduler
 app = Flask(__name__, static_url_path='/static')
 # app.debug = True
 
-time_diff = 1 #minutes
+time_diff = 3 #minutes
 
 def sensor():
     delete(val='img',time_diff = time_diff)
-    delete(val='pdf',ttime_diff = time_diff)
+    delete(val='pdf',time_diff = time_diff)
 
 sched = BackgroundScheduler(daemon=True)
 sched.add_job(sensor,'interval',minutes=time_diff)

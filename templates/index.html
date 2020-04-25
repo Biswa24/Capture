@@ -23,12 +23,36 @@
             text-shadow: 1px 1px lightsteelblue;
         }
         html{scroll-behavior:smooth !important;}
+        .loader {
+            border: 50px solid #f3f3f3;
+            border-radius: 30%;
+            border-top: 16px solid blue;
+            border-right: 16px solid green;
+            border-bottom: 16px solid red;
+            border-left: 16px solid pink;
+            width: 100px;
+            height: 100px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+            margin: 30px auto 0px auto;
+        }
+
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
     <div id="main" style="margin-bottom: 15px;">
         <h1 class="text-center">_Screenshot_</h1>
-        <div class="container-fluid">
+        {% if save != 1 %}
+        <div id="enter_link_box" class="container-fluid">
             <div class="row">
                 <div class="col-sm-3"></div>
                 <div class="col-sm-6 link">
@@ -45,7 +69,9 @@
                 <div class="col-sm-3"></div>
             </div>
         </div>
+        {% endif %}
     </div>
+    <div class="loader"></div>
     {% if save == 1 %}
         <div style="margin-bottom: 40px;" id="show_screenshot" class="container">
             <div class="row">
@@ -54,7 +80,7 @@
                     <div id="save">
                         <button style="margin: 20px;" type="button" class="btn btn-success"><a style="color: white;" href="../static/img/{{ img_name }}" download>Save as image</a></button>&nbsp;
                         <button style="margin: 20px;" type="button" class="btn btn-success"><a style="color: white;" href="../static/pdf/{{ pdf_name }}" download>Save as pdf</a></button><br>
-                        <button style="margin: 20px;" type="button" class="btn btn-success"><a style="color: white;" href="#">Take more screenshot</a></button>
+                        <button style="margin: 20px;" type="button" class="btn btn-success"><a id="more_scrnshot" style="color: white;" href="/">Take more screenshot</a></button>
                         <br>
                     </div>
                 </div>
@@ -67,10 +93,14 @@
     </footer>
 </body>
 <script>
+    $(".loader").hide()
     //$("#show_screenshot").hide()
     $("#submit_link").click(function(){
-        console.log("hiiiu")
-        $("#main").removeAttr("style")
+        $("#enter_link_box").hide()
+        $(".loader").show()
+    })
+    $("#more_scrnshot").click(function(){
+        $("#enter_link_box").show()
     })
 </script>
 </html>
