@@ -22,13 +22,13 @@ def url_check(url):
 			if response.status_code == 200:
 				return 'Web'
 			elif response.status_code == 404:
-				return 'Nfound'
+				return 'Error 404 Not found'
 			else:
-				return 'Down'
+				return 'URL website down'
 		except:
-			return 'NExist'
+			return 'Does not exist'
 	else:
-		return 'Invalid'
+		return 'Invalid URL'
 
 
 def img_gen(url):

@@ -51,6 +51,11 @@
 <body>
     <div id="main" style="margin-bottom: 15px;">
         <h1 class="text-center">_Screenshot_</h1>
+        {% if error_link %}
+        <div id="error" style="border: 1px solid red; border-radius: 10px;margin: 10px;padding: 2px;background-color: rgba(255,0,0,0.2);">
+            <h3 style="text-align: center; color: red; margin: 5px;">There was an error processing your request [ {{ msg }} ] !</h3>
+        </div>
+        {% endif %}
         {% if save != 1 %}
         <div id="enter_link_box" class="container-fluid">
             <div class="row">
@@ -85,7 +90,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </h1>
     {% endif %}
     <footer style="background-color: palegoldenrod; padding: 10px; position: fixed; left: 0; bottom: 0; width: 100%;">
         <p style="float: right;"> &copy MR.BSK</p>
@@ -98,9 +103,11 @@
     $("#submit_link").click(function(){
         $("#enter_link_box").hide()
         $(".loader").show()
+        $("#error").hide()
     })
     $("#more_scrnshot").click(function(){
         $("#enter_link_box").show()
     })
+    console.log('{{ error_link }}')
 </script>
 </html>

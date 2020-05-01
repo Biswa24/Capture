@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, url_for
+from flask import Flask, request, render_template, url_for, redirect
 from Main import img_gen , pdf_gen , delete , url_check
 from apscheduler.schedulers.background  import BackgroundScheduler
 
@@ -23,6 +23,9 @@ def home():
 def get_link():
     link = request.form['link']
     msg = url_check(link)
+    if(msg!='Web'):
+        error_link=True
+        return render_template("index.html", error_link=error_link, msg=msg)
     # msg code 
     # Invalid -> Invalid url , https://www.google.com
     # Down -> Website is currently not responding, try again after sometime
