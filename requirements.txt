@@ -5,6 +5,7 @@ click==7.1.1
 colorama==0.4.3
 configparser==5.0.0
 crayons==0.3.0
+decorator==4.4.2
 Flask==1.1.1
 gunicorn==20.0.4
 idna==2.9
@@ -19,5 +20,6 @@ Selenium-Screenshot==1.6.0
 six==1.14.0
 tzlocal==2.0.0
 urllib3==1.25.9
+validators==0.14.3
 webdriver-manager==2.3.0
 Werkzeug==1.0.1

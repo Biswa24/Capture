@@ -1,11 +1,11 @@
 from PIL import Image
 import os
 from os import environ,listdir
-#print(os.path.dirname(os.path.abspath(__file__))+'/chromedriver')
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
 from Screenshot import Screenshot_Clipping
 from datetime import datetime
+import validators
+import requests
 
 
 
@@ -13,6 +13,19 @@ ob=Screenshot_Clipping.Screenshot()
 
 img_dir = './static/img/'
 pdf_dir = './static/pdf/'
+
+def url_check(url):
+	valid = validators(url)
+	if valid == False:
+		return 'Invalid'
+	try:
+		request_code = requests.get(url)
+		if request_code == 200:
+			return 'Web'
+		else:
+			return 'Down'
+	except:
+		return 'Exist'
 
 
 def img_gen(url):
@@ -26,8 +39,8 @@ def img_gen(url):
 	chrome_options.add_argument("--no-sandbox")
 
 	if os.environ['FLASK_ENV'] == 'development':
-		DRIVER = ('./chromedriver/chromedriver_mac')
-		# DRIVER = ('./chromedriver/chromedriver_linux')
+		# DRIVER = ('./chromedriver/chromedriver_mac')
+		DRIVER = ('./chromedriver/chromedriver_linux')
 		driver = webdriver.Chrome(DRIVER)
 	else:
 		driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options)

@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template, url_for
-from Main import img_gen , pdf_gen , delete
+from Main import img_gen , pdf_gen , delete , url_check
 from apscheduler.schedulers.background  import BackgroundScheduler
 
 app = Flask(__name__, static_url_path='/static')
@@ -22,6 +22,14 @@ def home():
 @app.route('/', methods=['POST'])
 def get_link():
     link = request.form['link']
+    msg = url_check(link)
+    # msg code 
+    # Invalid -> Invalid url , https://www.google.com
+    # Down -> Website is not responding now, try again after sometime
+    # Exist -> Couldn't reach this website , check url 
+
+    # Web -> All fine , call img_gen 
+
     img_name = img_gen(link)
     pdf_name = pdf_gen(img_name)
     save=1
