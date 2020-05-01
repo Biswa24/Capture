@@ -25,8 +25,9 @@ def get_link():
     msg = url_check(link)
     # msg code 
     # Invalid -> Invalid url , https://www.google.com
-    # Down -> Website is not responding now, try again after sometime
-    # Exist -> Couldn't reach this website , check url 
+    # Down -> Website is currently not responding, try again after sometime
+    # NExist -> Couldn't reach this website , check url 
+    # Nfound -> Website not found 
 
     # Web -> All fine , call img_gen 
 

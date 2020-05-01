@@ -15,17 +15,20 @@ img_dir = './static/img/'
 pdf_dir = './static/pdf/'
 
 def url_check(url):
-	valid = validators(url)
-	if valid == False:
+	valid = validators.url(url)
+	if valid == True:
+		try:
+			response = requests.get(url)
+			if response.status_code == 200:
+				return 'Web'
+			elif response.status_code == 404:
+				return 'Nfound'
+			else:
+				return 'Down'
+		except:
+			return 'NExist'
+	else:
 		return 'Invalid'
-	try:
-		request_code = requests.get(url)
-		if request_code == 200:
-			return 'Web'
-		else:
-			return 'Down'
-	except:
-		return 'Exist'
 
 
 def img_gen(url):
