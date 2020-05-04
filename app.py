@@ -37,7 +37,8 @@ def get_link():
     img_name = img_gen(link)
     pdf_name = pdf_gen(img_name)
     save=1
-    return render_template("index.html", img_name=img_name,save=save, pdf_name=pdf_name)
+    notice="The screenshot will be delete after 30 mins"
+    return render_template("index.html", img_name=img_name,save=save, pdf_name=pdf_name, notice=notice)
 
 if __name__ == '__main__':
     app.run()
