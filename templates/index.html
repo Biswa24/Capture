@@ -10,7 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
     <link rel="shortcut icon" type="image/png" href="../static/misc_photos/favicon.png"/>
-    <title>_Screenshot_</title>
+    <title>_WebCapture_</title>
     <style>
         body{
             background-image: url("../static/misc_photos/background.jpg");
@@ -51,7 +51,8 @@
 </head>
 <body>
     <div id="main" style="margin-bottom: 15px;">
-        <h1 class="text-center">_Screenshot_</h1>
+        <h1 class="text-center">_WebCapture_</h1>
+        <p style="text-align: center; color: darkblue; font-size: larger;font-family: 'Lucida Console', Courier, monospace;">Capture full webpage, and save it for your use in one click</p>
         {% if error_link %}
         <div id="error" style="border: 1px solid red; border-radius: 10px;margin: 10px;padding: 2px;background-color: rgba(255,0,0,0.2);">
             <h3 style="text-align: center; color: red; margin: 5px;"><i>There was an error processing your request [ {{ msg }} ] !</i></h3>
@@ -66,7 +67,7 @@
                         <form method="POST">
                             <div class="form-group">
                             <label for="email">Enter link:</label>
-                            <input type="text" name="link" class="form-control" id="link" placeholder="Link...">
+                            <input type="text" name="link" class="form-control" id="link" placeholder=" https://www.google.com">
                             </div>
                             <button id="submit_link" type="submit" class="btn btn-default">Submit</button>
                         </form>
@@ -96,7 +97,7 @@
     {% endif %}
     <footer style="background-color: rgba(116, 173, 172,0.5); padding: 10px; position: fixed; left: 0; bottom: 0; width: 100%;">
         <p style="float: right;"> &copy MR.BSK</p>
-        <p>Contact information: <a href="mailto:screenshot@mail.itsbiswa.me">screenshot@mail.itsbiswa.me</a></p>
+        <p>Contact information: <a href="mailto:webcapture@mail.itsbiswa.me">webcapture@mail.itsbiswa.me</a></p>
     </footer>
 </body>
 <script>
