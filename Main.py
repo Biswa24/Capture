@@ -42,8 +42,8 @@ def img_gen(url):
 	chrome_options.add_argument("--no-sandbox")
 
 	if os.environ['FLASK_ENV'] == 'development':
-		# DRIVER = ('./chromedriver/chromedriver_mac')
-		DRIVER = ('./chromedriver/chromedriver_linux')
+		DRIVER = ('./chromedriver/chromedriver_mac')
+		# DRIVER = ('./chromedriver/chromedriver_linux')
 		driver = webdriver.Chrome(DRIVER)
 	else:
 		driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"),chrome_options=chrome_options)
@@ -53,9 +53,9 @@ def img_gen(url):
 	img_path = os.path.join(img_dir,img_name)
 	# img_url=ob.full_Screenshot(driver, save_path=img_dir, image_name=img_name)
 	S = lambda X: driver.execute_script('return document.body.parentNode.scroll'+X)
-	driver.set_window_size(S('Width'),S('Height')) # May need manual adjustment
+	driver.set_window_size(S('Width'),S('Height')) 
 	driver.find_element_by_tag_name('body')
-	driver.save_screenshot(img_path)  # has scrollbar
+	driver.save_screenshot(img_path)  
 	driver.quit()
 	return img_name
 	

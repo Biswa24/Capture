@@ -5,7 +5,7 @@ from apscheduler.schedulers.background  import BackgroundScheduler
 app = Flask(__name__, static_url_path='/static')
 # app.debug = True
 
-time_diff = 3 #minutes
+time_diff = 30 #minutes
 
 def sensor():
     delete(val='img',time_diff = time_diff)
@@ -37,7 +37,7 @@ def get_link():
     img_name = img_gen(link)
     pdf_name = pdf_gen(img_name)
     save=1
-    notice="The screenshot will be deleted after 30 mins"
+    notice="Files will removed from the server after 30 minutes"
     return render_template("index.html", img_name=img_name,save=save, pdf_name=pdf_name, notice=notice)
 
 if __name__ == '__main__':
