@@ -20,7 +20,7 @@ def convert_url(url):
     if url.startswith('http://www.'):
         return 'http://' + url[len('http://www.'):]
     if url.startswith('www.'):
-        return 'https://' + url[len('www.'):]
+        return 'https://' + url
     if not url.startswith('https://'):
         return 'https://' + url
     return url
