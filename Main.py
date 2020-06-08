@@ -14,7 +14,19 @@ ob=Screenshot_Clipping.Screenshot()
 img_dir = './static/img/'
 pdf_dir = './static/pdf/'
 
+def convert_url(url):
+    if url.startswith('https://www.'):
+        return 'https://' + url[len('https://www.'):]
+    if url.startswith('http://www.'):
+        return 'http://' + url[len('http://www.'):]
+    if url.startswith('www.'):
+        return 'https://' + url[len('www.'):]
+    if not url.startswith('https://'):
+        return 'https://' + url
+    return url
+
 def url_check(url):
+	url=convert_url(url)
 	valid = validators.url(url)
 	if valid == True:
 		try:
