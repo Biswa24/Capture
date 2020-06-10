@@ -21,7 +21,7 @@ def http_checker(url):
 	return url
 
 def url_check(url):
-	url = http_checker(url = url)
+# 	url = http_checker(url = url)
 	valid = validators.url(url)
 	if valid == True:
 		try:
