@@ -14,7 +14,14 @@ ob=Screenshot_Clipping.Screenshot()
 img_dir = './static/img/'
 pdf_dir = './static/pdf/'
 
+def http_checker(url):
+	if url.startswith('http'):
+		return url
+	url = 'http://' + url
+	return url
+
 def url_check(url):
+	url = http_checker(url = url)
 	valid = validators.url(url)
 	if valid == True:
 		try:
