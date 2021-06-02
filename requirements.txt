@@ -19,7 +19,7 @@ selenium==3.141.0
 Selenium-Screenshot==1.6.0
 six==1.14.0
 tzlocal==2.0.0
-urllib3==1.25.9
+urllib3==1.26.5
 validators==0.14.3
 webdriver-manager==2.3.0
 Werkzeug==1.0.1
